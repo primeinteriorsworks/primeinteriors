@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Website Coming Soon</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Video Background */
+.video-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* 20% BLACK OVERLAY */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.2);
+  z-index: -1;
+}
+
+/* Container */
+.container {
+  min-height: 100vh;
+  padding: 30px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+}
+
+/* Logo */
+.logo img {
+  max-width: 240px;
+  margin-bottom: 20px;
+}
+
+/* Headings */
+.container header {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.container p {
+  font-size: 14px;
+  max-width: 520px;
+  margin-bottom: 20px;
+}
+
+/* Countdown */
+.time-content {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.15);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.time {
+  min-width: 70px;
+}
+.time .number {
+  font-size: 40px;
+  font-weight: 700;
+}
+.time .text {
+  font-size: 12px;
+}
+
+/* Email */
+.email-content {
+  margin-top: 25px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.email-content p {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-box input {
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: 1px solid #fff;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+.input-box input::placeholder {
+  color: #fff;
+}
+
+.input-box button {
+  height: 42px;
+  border-radius: 6px;
+  border: none;
+  background: #fff;
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.input-box button:hover {
+  background: #1e40af;
+  color: #fff;
+}
+
+/* ICON ROW (NEW) */
+.icon-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.icon-row a {
+  height: 42px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.9);
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.icon-row a:hover {
+  background: #1e40af;
+  color: #fff;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .container header {
+    font-size: 28px;
+  }
+  .time .number {
+    font-size: 32px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background Video -->
+<video class="video-bg" autoplay muted loop playsinline>
+  <source src="Assests/video_1.mp4" type="video/mp4">
+</video>
+
+<section class="container">
+
+  <div class="logo">
+    <img src="Assests/w_p.png" alt="Prime Interiors Logo">
+  </div>
+
+  <header>Website Coming Soon</header>
+
+  <p>
+    Our website is under construction. We’ll be here soon with our new awesome site, subscribe to be notified.
+  </p>
+
+  <div class="time-content">
+    <div class="time days"><div class="number"></div><div class="text">days</div></div>
+    <div class="time hours"><div class="number"></div><div class="text">hours</div></div>
+    <div class="time minutes"><div class="number"></div><div class="text">minutes</div></div>
+    <div class="time seconds"><div class="number"></div><div class="text">seconds</div></div>
+  </div>
+
+  <div class="email-content">
+    <p>Subscribe now to get the latest updates!</p>
+
+    <form class="input-box" action="notify.php" method="POST">
+      <input type="email" name="email" placeholder="Enter your email..." required>
+      <button type="submit">Notify Me</button>
+    </form>
+
+    <!-- ICON ROW BELOW BUTTON -->
+    <div class="icon-row">
+      <a href="tel:+918850942435"><i class="fas fa-phone"></i></a>
+      <a href="https://wa.me/918850942435" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+
+</section>
+
+<!-- Countdown Script -->
+<script>
+const targetDate = new Date("January 15, 2026 00:00:00").getTime();
+const d = document.querySelector(".days .number");
+const h = document.querySelector(".hours .number");
+const m = document.querySelector(".minutes .number");
+const s = document.querySelector(".seconds .number");
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = targetDate - now;
+  if (diff < 0) return;
+
+  d.textContent = Math.floor(diff / (1000*60*60*24));
+  h.textContent = Math.floor((diff / (1000*60*60)) % 24);
+  m.textContent = Math.floor((diff / (1000*60)) % 60);
+  s.textContent = Math.floor((diff / 1000) % 60);
+}, 1000);
+</script>
+
+</body>
+</html>
